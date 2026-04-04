@@ -1,0 +1,173 @@
+/* ===== GLOBAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-header h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem;
+    color: #f0f0f0;
+    margin-bottom: 4px;
+}
+.sidebar-header p {
+    font-size: 0.78rem;
+    color: #aaa;
+    line-height: 1.4;
+}
+.sidebar-footer {
+    color: #666;
+    font-size: 0.72rem;
+    text-align: center;
+    padding-top: 8px;
+}
+
+/* ===== METRIC CARDS ===== */
+.metric-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+.metric-card:hover { border-color: #6c63ff; }
+.metric-card .label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.metric-card .value {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f0f0f0;
+}
+.metric-card .sub {
+    font-size: 0.75rem;
+    color: #6c63ff;
+    margin-top: 4px;
+}
+
+/* ===== RESULT CARDS ===== */
+.result-card {
+    background: #12122a;
+    border-radius: 14px;
+    padding: 24px;
+    border-left: 4px solid #6c63ff;
+    margin-bottom: 16px;
+}
+.result-card.positive { border-left-color: #22c55e; }
+.result-card.negative { border-left-color: #ef4444; }
+.result-card.neutral  { border-left-color: #eab308; }
+.result-card.mixed    { border-left-color: #a855f7; }
+
+.result-card .sentiment-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+.badge-positive { background: #14532d; color: #22c55e; }
+.badge-negative { background: #450a0a; color: #ef4444; }
+.badge-neutral  { background: #422006; color: #eab308; }
+.badge-mixed    { background: #3b0764; color: #a855f7; }
+
+.result-card .original-text {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+    background: #0d0d1f;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-style: italic;
+}
+.result-card .root-issue {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 8px;
+}
+.result-card .root-issue span {
+    color: #a5b4fc;
+    font-weight: 500;
+}
+.result-card .draft-response {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    background: #1a1a3e;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    border: 1px dashed #374151;
+    line-height: 1.6;
+}
+
+/* ===== SCORE BAR ===== */
+.score-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 6px 0;
+}
+.score-label {
+    font-size: 0.78rem;
+    color: #aaa;
+    width: 100px;
+    text-align: right;
+}
+.score-bar-bg {
+    flex: 1;
+    background: #1f1f3a;
+    border-radius: 6px;
+    height: 8px;
+    overflow: hidden;
+}
+.score-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.6s ease;
+}
+.score-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #a5b4fc;
+    width: 36px;
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    margin-bottom: 28px;
+}
+.page-header h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem;
+    color: #f0f0f0;
+    margin-bottom: 4px;
+}
+.page-header p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* ===== HISTORY TABLE ===== */
+.history-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #12122a;
+    margin-bottom: 8px;
+    font-size: 0.83rem;
+}
+.history-text { flex: 1; color: #ccc; }
+.history-time { color: #666; font-size: 0.75rem; white-space: nowrap; }
