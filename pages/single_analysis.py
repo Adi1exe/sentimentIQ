@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.gemini_api import analyze_single
+from utils.openai_api import analyze_single
 from utils.state import add_to_history, get_dashboard_stats
 from utils.ui_components import render_result_card, render_page_header, render_stats_row
 

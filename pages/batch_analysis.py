@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
-from utils.gemini_api import analyze_batch
+from utils.openai_api import analyze_batch
 from utils.state import add_to_history
 from utils.ui_components import render_result_card, render_page_header
 
@@ -71,7 +71,7 @@ def _run_batch(texts: list, original_df: pd.DataFrame = None):
     results = []
 
     for i, text in enumerate(texts):
-        from utils.gemini_api import analyze_single
+        from utils.openai_api import analyze_single
         try:
             r = analyze_single(text)
         except Exception as e:

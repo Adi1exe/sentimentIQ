@@ -2,7 +2,7 @@
 
 > Built for **Tophawks AI Internship — Screening Assignment Q5 (Builder Challenge)**
 
-SentimentIQ is a Streamlit app that uses the **Gemini API (Google)** to analyze sentiment in customer feedback, complaints, emails, and business text — returning structured, actionable insights.
+SentimentIQ is a Streamlit app that uses the **OpenAI API** to analyze sentiment in customer feedback, complaints, emails, and business text — returning structured, actionable insights.
 
 ---
 
@@ -32,7 +32,7 @@ sentiment_analyzer/
 │   ├── dashboard.py        # Charts & analytics
 │   └── history.py          # Session history log
 └── utils/
-    ├── gemini_api.py        # Gemini API calls + system prompt
+    ├── openai_api.py        # OpenAI API calls + system prompt
     ├── state.py             # Session state / history management
     └── ui_components.py     # Shared UI rendering components
 ```
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 Create a `.env` file and add your key:
 ```bash
 cp .env.example .env
-GEMINI_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
 ```
 
 ### 4. Run the app
@@ -68,7 +68,7 @@ streamlit run app.py
 
 ## 🧠 How It Works
 
-Each text input is sent to `gemini-2.5-flash` with a carefully engineered system prompt that forces structured JSON output:
+Each text input is sent to `gpt-4o-mini` with a carefully engineered system prompt that forces structured JSON output:
 
 ```json
 {
@@ -98,7 +98,7 @@ The system prompt enforces strict JSON-only output with no markdown fences, maki
 ## 🛠️ Tech Stack
 
 - **Frontend**: Streamlit
-- **AI**: Google Gemini API (`gemini-2.5-flash`)
+- **AI**: OpenAI API (`gpt-4o-mini`)
 - **Data**: Pandas
 - **Charts**: Plotly
 - **Styling**: Custom CSS (dark theme)
