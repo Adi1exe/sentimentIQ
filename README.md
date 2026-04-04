@@ -108,4 +108,3 @@ The system prompt enforces strict JSON-only output with no markdown fences, maki
 ## 👤 Author
 
 Built by **Adi** · Final Year AI&DS Student · [GitHub](https://github.com/Adi1exe)
-For TopHawks Practical Assessment only
