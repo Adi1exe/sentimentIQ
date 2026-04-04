@@ -171,3 +171,8 @@ html, body, [class*="css"] {
 }
 .history-text { flex: 1; color: #ccc; }
 .history-time { color: #666; font-size: 0.75rem; white-space: nowrap; }
+
+/* ===== HIDE DEFAULT STREAMLIT SIDEBAR PAGES ===== */
+[data-testid="stSidebarNav"] {
+    display: none !important;
+}

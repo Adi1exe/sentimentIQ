@@ -1,14 +1,14 @@
 import os
 import json
 import re
-from openai import OpenAI
+import google.generativeai as genai
 from dotenv import load_dotenv
 
 # Load environment variables from .env
 load_dotenv()
 
-# Configure the OpenAI API client
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+# Configure the Gemini API client
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 SYSTEM_PROMPT = """You are an expert Sentiment Analysis engine for a B2B sales intelligence platform.
 
@@ -33,19 +33,19 @@ Rules:
 """
 
 def analyze_single(text: str) -> dict:
-    """Analyze a single piece of text and return structured sentiment data using the OpenAI API."""
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": f"Analyze the sentiment of this text:\n\n{text}"}
-        ],
-        response_format={ "type": "json_object" },
-        temperature=0.0
+    """Analyze a single piece of text and return structured sentiment data using the Gemini API."""
+    model = genai.GenerativeModel(
+        model_name="gemini-2.5-flash",
+        system_instruction=SYSTEM_PROMPT,
+        generation_config={"response_mime_type": "application/json"}
     )
     
-    raw = response.choices[0].message.content.strip()
+    response = model.generate_content(
+        f"Analyze the sentiment of this text:\n\n{text}"
+    )
 
+    raw = response.text.strip()
+    
     # Strip markdown fences if any
     raw = re.sub(r"```json|```", "", raw, flags=re.IGNORECASE).strip()
     result = json.loads(raw)
