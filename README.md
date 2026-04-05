@@ -1,7 +1,5 @@
 # 🧠 SentimentIQ — AI-Powered Sentiment Analysis Tool
 
-> Built for **Tophawks AI Internship — Screening Assignment Q5 (Builder Challenge)**
-
 SentimentIQ is a Streamlit app that uses the **Gemini API (Google)** to analyze sentiment in customer feedback, complaints, emails, and business text — returning structured, actionable insights.
 
 ---
@@ -43,8 +41,8 @@ sentiment_analyzer/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/Adi1exe/TopHawks-Practical-Screening-Assignment.git
-cd TopHawks-Practical-Screening-Assignment
+git clone https://github.com/Adi1exe/sentimentIQ.git
+cd sentimentIQ
 ```
 
 ### 2. Install dependencies
