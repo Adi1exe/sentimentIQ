@@ -33,7 +33,7 @@ selection = st.sidebar.radio("Navigate", list(PAGES.keys()), label_visibility="c
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
 <div class="sidebar-footer">
-    <small>Built by ADITYA DOLAS · Tophawks Assignment Q5</small>
+    <small>Built by Adi ;</small>
 </div>
 """, unsafe_allow_html=True)
 
