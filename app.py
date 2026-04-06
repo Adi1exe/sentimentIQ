@@ -11,13 +11,14 @@ st.set_page_config(
 with open("assets/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-from pages import single_analysis, batch_analysis, history, dashboard
+from pages import single_analysis, batch_analysis, history, dashboard, about
 
 PAGES = {
     "🔍 Single Analysis": single_analysis,
     "📂 Batch Analysis": batch_analysis,
     "📊 Dashboard": dashboard,
     "🕘 History": history,
+    "👋 About": about,
 }
 
 st.sidebar.markdown("""
