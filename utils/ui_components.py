@@ -38,54 +38,50 @@ def render_result_card(result: dict, index: int = 0):
         for t in themes
     )
 
-    st.markdown(f"""
-    <div class="{card_class}">
-        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <span class="sentiment-badge {badge_class}">{result.get("sentiment","Neutral")}</span>
-            <span style="font-size:0.75rem;color:{urgency_color};font-weight:600;">
-                ⚡ {urgency} Urgency
-            </span>
-        </div>
+    html_str = f"""<div class="{card_class}">
+<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+<span class="sentiment-badge {badge_class}">{result.get("sentiment","Neutral")}</span>
+<span style="font-size:0.75rem;color:{urgency_color};font-weight:600;">
+⚡ {urgency} Urgency
+</span>
+</div>
 
-        <div class="original-text">"{text[:300]}{"..." if len(text) > 300 else ""}"</div>
+<div class="original-text">"{text[:300]}{"..." if len(text) > 300 else ""}"</div>
 
-        <div style="margin: 12px 0;">{themes_html}</div>
+<div style="margin: 12px 0;">{themes_html}</div>
 
-        <div class="root-issue">🎯 Root Issue: <span>{root_issue}</span></div>
+<div class="root-issue">🎯 Root Issue: <span>{root_issue}</span></div>
 
-        <div style="margin-top:14px;">
-            {_score_bar("Sentiment Score", score, 5, sentiment_color)}
-            {_score_bar("Confidence", int(confidence * 5), 5, "#6c63ff")}
-        </div>
+<div style="margin-top:14px;">
+{_score_bar("Sentiment Score", score, 5, sentiment_color)}
+{_score_bar("Confidence", int(confidence * 5), 5, "#6c63ff")}
+</div>
 
-        <div class="draft-response">
-            <div style="font-size:0.72rem;color:#666;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">✉ Draft Response</div>
-            {draft}
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+<div class="draft-response">
+<div style="font-size:0.72rem;color:#666;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">✉ Draft Response</div>
+{draft}
+</div>
+</div>"""
+    st.markdown(html_str, unsafe_allow_html=True)
 
 
 def _score_bar(label: str, value: int, max_val: int, color: str) -> str:
     pct = int((value / max_val) * 100)
-    return f"""
-    <div class="score-row">
-        <div class="score-label">{label}</div>
-        <div class="score-bar-bg">
-            <div class="score-bar-fill" style="width:{pct}%;background:{color};"></div>
-        </div>
-        <div class="score-val">{value}/{max_val}</div>
-    </div>
-    """
+    return f"""<div class="score-row">
+<div class="score-label">{label}</div>
+<div class="score-bar-bg">
+<div class="score-bar-fill" style="width:{pct}%;background:{color};"></div>
+</div>
+<div class="score-val">{value}/{max_val}</div>
+</div>"""
 
 
 def render_page_header(title: str, subtitle: str):
-    st.markdown(f"""
-    <div class="page-header">
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
-    </div>
-    """, unsafe_allow_html=True)
+    html_str = f"""<div class="page-header">
+<h2>{title}</h2>
+<p>{subtitle}</p>
+</div>"""
+    st.markdown(html_str, unsafe_allow_html=True)
 
 
 def render_stats_row(stats: dict):
@@ -98,10 +94,9 @@ def render_stats_row(stats: dict):
     ]
     for col, (label, value, sub) in zip(cols, items):
         with col:
-            st.markdown(f"""
-            <div class="metric-card">
-                <div class="label">{label}</div>
-                <div class="value">{value}</div>
-                <div class="sub">{sub}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            html_str = f"""<div class="metric-card">
+<div class="label">{label}</div>
+<div class="value">{value}</div>
+<div class="sub">{sub}</div>
+</div>"""
+            st.markdown(html_str, unsafe_allow_html=True)
