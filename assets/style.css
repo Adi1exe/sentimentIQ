@@ -9,7 +9,7 @@ html, body, [class*="css"] {
 .sidebar-header h1 {
     font-family: 'Space Mono', monospace;
     font-size: 1.4rem;
-    color: #f0f0f0;
+    color: var(--text-color);
     margin-bottom: 4px;
 }
 .sidebar-header p {
@@ -150,7 +150,7 @@ html, body, [class*="css"] {
 .page-header h2 {
     font-family: 'Space Mono', monospace;
     font-size: 1.6rem;
-    color: #f0f0f0;
+    color: var(--text-color);
     margin-bottom: 4px;
 }
 .page-header p {
